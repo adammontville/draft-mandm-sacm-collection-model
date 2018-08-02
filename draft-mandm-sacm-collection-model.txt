@@ -4,8 +4,8 @@
 
 SACM Working Group                                          A. Montville
 Internet-Draft                                                 B. Munyan
-Intended status: Informational                                       CIS
-Expires: January 25, 2019                                  July 24, 2018
+Intended status: Standards Track                                     CIS
+Expires: February 3, 2019                                August 02, 2018
 
 
                   Endpoint Attribute Collection Model
@@ -33,7 +33,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on January 25, 2019.
+   This Internet-Draft will expire on February 3, 2019.
 
 Copyright Notice
 
@@ -53,54 +53,107 @@ Copyright Notice
 
 
 
-Montville & Munyan      Expires January 25, 2019                [Page 1]
+Montville & Munyan      Expires February 3, 2019                [Page 1]
 
-Internet-Draft              Collection Model                   July 2018
+Internet-Draft              Collection Model                 August 2018
 
 
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
-   2.  Terms and Definitions . . . . . . . . . . . . . . . . . . . .   2
-   3.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   2
-   4.  Security Considerations . . . . . . . . . . . . . . . . . . .   2
-   5.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   2
-   6.  Change Log  . . . . . . . . . . . . . . . . . . . . . . . . .   2
-   7.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .   2
-   Appendix A.  The Attic  . . . . . . . . . . . . . . . . . . . . .   2
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   3
+   2.  Terms and Definitions . . . . . . . . . . . . . . . . . . . .   3
+   3.  Collection Expression Information Model . . . . . . . . . . .   3
+     3.1.  Objects . . . . . . . . . . . . . . . . . . . . . . . . .   3
+     3.2.  Filters . . . . . . . . . . . . . . . . . . . . . . . . .   3
+     3.3.  Variables . . . . . . . . . . . . . . . . . . . . . . . .   3
+     3.4.  Formal Information Model  . . . . . . . . . . . . . . . .   3
+   4.  Collection Expression JSON Binding  . . . . . . . . . . . . .   3
+   5.  Collection Expression XML Binding . . . . . . . . . . . . . .   3
+   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   4
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .   4
+   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   4
+   9.  Change Log  . . . . . . . . . . . . . . . . . . . . . . . . .   4
+   10. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .   5
+   Appendix A.  Examples . . . . . . . . . . . . . . . . . . . . . .   5
+   Appendix B.  The Attic  . . . . . . . . . . . . . . . . . . . . .   5
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   5
 
 1.  Introduction
 
-   TBD
+   Collecting state information from endpoints of any classification is
+   a challenging task without understanding the details of those
+   endpoints.  In fact, this challenge represents one of the barriers to
+   speeding policy to implementation in the enterprise - policy authors
+   might know at an abstract level which endpoint attribute they'd like
+   to collect, but they may not understand with enough detail how to
+   express this in a machine readable form.
+
+   This may be the result of so many different collection mechanisms.
+   SSH, WinRM, PowerShell Remoting, SOAP-based services, NETCONF/
+   RESTCONF, YANG Push, OVAL, basic command output capture, shell
+   scripts, and the list probably goes on - the list may be as long as
+   there are services on endpoints to query.  If we really want to get
+   from policy to implementation quickly, the expression of collection
+   must be reasonably decoupled from the machine readable expression of
+   that collection.
+
+   In this regard, we have expressed the notion of collection in its
+   minimal form.  The balance of this document describes this minimal
+   form in detail.  We begin with an information model and present
+   initial XML and JSON bindings.
+
+   [NOTE: We are not averse to other bindings being offered.]
+
+
+
+
+
+
+Montville & Munyan      Expires February 3, 2019                [Page 2]
+
+Internet-Draft              Collection Model                 August 2018
+
 
 2.  Terms and Definitions
 
    TBD
 
-3.  IANA Considerations
+3.  Collection Expression Information Model
 
-   TBD
+   [Overview of the entire IM]
 
-4.  Security Considerations
+3.1.  Objects
 
-   TBD
+   [Descriptions of what an "object" is.  Seems to be a superset of
+   endpoint attributes; or that "thing" from which we can extract
+   attributes.]
 
-5.  Acknowledgements
+3.2.  Filters
 
-   TBD
+   [Description of why we need filters and what they are.  Include any
+   implications, i.e. this may imply some degree of "evaluation" (for
+   the purpose of filtering) wherever the collection process is
+   executing.]
 
-6.  Change Log
+3.3.  Variables
 
-   TBD
+   [Describe the variable hierarchy and what each means.  Dive into
+   local variables and the different constructions present in that
+   element.]
 
-7.  Contributors
+3.4.  Formal Information Model
 
-   TBD
+   [Pull all of the above together into a concise information model in
+   this subsection.]
 
-Appendix A.  The Attic
+4.  Collection Expression JSON Binding
 
-   TBD
+   [Put forward a JSON binding for Collection Expression.]
+
+5.  Collection Expression XML Binding
+
+   [Convert the collection XML from the 102 hackathon (below) to a
+   schema that binds to the previously described information model.]
 
 
 
@@ -109,10 +162,81 @@ Appendix A.  The Attic
 
 
 
-Montville & Munyan      Expires January 25, 2019                [Page 2]
+
+
+
+Montville & Munyan      Expires February 3, 2019                [Page 3]
 
-Internet-Draft              Collection Model                   July 2018
+Internet-Draft              Collection Model                 August 2018
 
+
+<collection>
+  <objects>
+    <object></object>
+  </objects>
+  <filters>
+    <filter></filter>
+  </filters>
+  <variables>
+    <constant-variable></constant-variable>
+    <external-variable></external-variable>
+    <local-variable>
+      [function-groups, literal-component, variable-component, object-component]
+      <arithmetic></arithmetic>
+      <begin></begin>
+      <concat></concat>
+      <end></end>
+      <escape-regex></escape-regex>
+      <split></split>
+      <substring></substring>
+      <time-difference></time-difference>
+      <regex-capture></regex-capture>
+      <unique></unique>
+      <count></count>
+      <glob-to-regex></glob-to-regex>
+    </local-variable>
+  </variables>
+</collection>
+
+6.  IANA Considerations
+
+   [Whether there are IANA considerations remains TBD.  It may
+   ultimately be that the decoupling of collection details from abstract
+   collection instruction requires a registry for new collection
+   details...]
+
+7.  Security Considerations
+
+   TBD
+
+8.  Acknowledgements
+
+   TBD
+
+9.  Change Log
+
+   TBD
+
+
+
+
+
+Montville & Munyan      Expires February 3, 2019                [Page 4]
+
+Internet-Draft              Collection Model                 August 2018
+
+
+10.  Contributors
+
+   TBD
+
+Appendix A.  Examples
+
+   [Consider adding one or more examples here.]
+
+Appendix B.  The Attic
+
+   TBD
 
 Authors' Addresses
 
@@ -153,16 +277,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-Montville & Munyan      Expires January 25, 2019                [Page 3]
+Montville & Munyan      Expires February 3, 2019                [Page 5]

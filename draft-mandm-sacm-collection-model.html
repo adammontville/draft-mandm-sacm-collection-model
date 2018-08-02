@@ -283,12 +283,20 @@ ul.toc li {
   <link href="#rfc.toc" rel="Contents"/>
 <link href="#rfc.section.1" rel="Chapter" title="1 Introduction"/>
 <link href="#rfc.section.2" rel="Chapter" title="2 Terms and Definitions"/>
-<link href="#rfc.section.3" rel="Chapter" title="3 IANA Considerations"/>
-<link href="#rfc.section.4" rel="Chapter" title="4 Security Considerations"/>
-<link href="#rfc.section.5" rel="Chapter" title="5 Acknowledgements"/>
-<link href="#rfc.section.6" rel="Chapter" title="6 Change Log"/>
-<link href="#rfc.section.7" rel="Chapter" title="7 Contributors"/>
-<link href="#rfc.appendix.A" rel="Chapter" title="A The Attic"/>
+<link href="#rfc.section.3" rel="Chapter" title="3 Collection Expression Information Model"/>
+<link href="#rfc.section.3.1" rel="Chapter" title="3.1 Objects"/>
+<link href="#rfc.section.3.2" rel="Chapter" title="3.2 Filters"/>
+<link href="#rfc.section.3.3" rel="Chapter" title="3.3 Variables"/>
+<link href="#rfc.section.3.4" rel="Chapter" title="3.4 Formal Information Model"/>
+<link href="#rfc.section.4" rel="Chapter" title="4 Collection Expression JSON Binding"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 Collection Expression XML Binding"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 IANA Considerations"/>
+<link href="#rfc.section.7" rel="Chapter" title="7 Security Considerations"/>
+<link href="#rfc.section.8" rel="Chapter" title="8 Acknowledgements"/>
+<link href="#rfc.section.9" rel="Chapter" title="9 Change Log"/>
+<link href="#rfc.section.10" rel="Chapter" title="10 Contributors"/>
+<link href="#rfc.appendix.A" rel="Chapter" title="A Examples"/>
+<link href="#rfc.appendix.B" rel="Chapter" title="B The Attic"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -297,7 +305,7 @@ ul.toc li {
 
   <meta name="dct.creator" content="Montville, A. and B. Munyan" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-mandm-sacm-collection-model-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-7-24" />
+  <meta name="dct.issued" scheme="ISO8601" content="2018-8-02" />
   <meta name="dct.abstract" content="This memo describes an information model (and associated data model) that can be used to encapsulate detailed endpoint attribute expressions for the purpose of performing collection of actual endpoint attributes in support of assessment." />
   <meta name="description" content="This memo describes an information model (and associated data model) that can be used to encapsulate detailed endpoint attribute expressions for the purpose of performing collection of actual endpoint attributes in support of assessment." />
 
@@ -317,12 +325,12 @@ ul.toc li {
   <td class="right">B. Munyan</td>
 </tr>
 <tr>
-  <td class="left">Intended status: Informational</td>
+  <td class="left">Intended status: Standards Track</td>
   <td class="right">CIS</td>
 </tr>
 <tr>
-  <td class="left">Expires: January 25, 2019</td>
-  <td class="right">July 24, 2018</td>
+  <td class="left">Expires: February 3, 2019</td>
+  <td class="right">August 02, 2018</td>
 </tr>
 
     	
@@ -342,7 +350,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on January 25, 2019.</p>
+<p>This Internet-Draft will expire on February 3, 2019.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -356,33 +364,89 @@ ul.toc li {
 
   	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
 <li>2.   <a href="#rfc.section.2">Terms and Definitions</a></li>
-<li>3.   <a href="#rfc.section.3">IANA Considerations</a></li>
-<li>4.   <a href="#rfc.section.4">Security Considerations</a></li>
-<li>5.   <a href="#rfc.section.5">Acknowledgements</a></li>
-<li>6.   <a href="#rfc.section.6">Change Log</a></li>
-<li>7.   <a href="#rfc.section.7">Contributors</a></li>
-<li>Appendix A.   <a href="#rfc.appendix.A">The Attic</a></li>
+<li>3.   <a href="#rfc.section.3">Collection Expression Information Model</a></li>
+<ul><li>3.1.   <a href="#rfc.section.3.1">Objects</a></li>
+<li>3.2.   <a href="#rfc.section.3.2">Filters</a></li>
+<li>3.3.   <a href="#rfc.section.3.3">Variables</a></li>
+<li>3.4.   <a href="#rfc.section.3.4">Formal Information Model</a></li>
+</ul><li>4.   <a href="#rfc.section.4">Collection Expression JSON Binding</a></li>
+<li>5.   <a href="#rfc.section.5">Collection Expression XML Binding</a></li>
+<li>6.   <a href="#rfc.section.6">IANA Considerations</a></li>
+<li>7.   <a href="#rfc.section.7">Security Considerations</a></li>
+<li>8.   <a href="#rfc.section.8">Acknowledgements</a></li>
+<li>9.   <a href="#rfc.section.9">Change Log</a></li>
+<li>10.   <a href="#rfc.section.10">Contributors</a></li>
+<li>Appendix A.   <a href="#rfc.appendix.A">Examples</a></li>
+<li>Appendix B.   <a href="#rfc.appendix.B">The Attic</a></li>
 <li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
   </ul>
 
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a></h1>
-<p id="rfc.section.1.p.1">TBD</p>
+<p id="rfc.section.1.p.1">Collecting state information from endpoints of any classification is a challenging task without understanding the details of those endpoints. In fact, this challenge represents one of the barriers to speeding policy to implementation in the enterprise - policy authors might know at an abstract level which endpoint attribute they'd like to collect, but they may not understand with enough detail how to express this in a machine readable form.</p>
+<p id="rfc.section.1.p.2">This may be the result of so many different collection mechanisms. SSH, WinRM, PowerShell Remoting, SOAP-based services, NETCONF/RESTCONF, YANG Push, OVAL, basic command output capture, shell scripts, and the list probably goes on - the list may be as long as there are services on endpoints to query. If we really want to get from policy to implementation quickly, the expression of collection must be reasonably decoupled from the machine readable expression of that collection.</p>
+<p id="rfc.section.1.p.3">In this regard, we have expressed the notion of collection in its minimal form. The balance of this document describes this minimal form in detail. We begin with an information model and present initial XML and JSON bindings.</p>
+<p id="rfc.section.1.p.4">[NOTE: We are not averse to other bindings being offered.]</p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#terms-and-definitions" id="terms-and-definitions">Terms and Definitions</a></h1>
 <p id="rfc.section.2.p.1">TBD</p>
-<h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a></h1>
-<p id="rfc.section.3.p.1">TBD</p>
-<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
-<p id="rfc.section.4.p.1">TBD</p>
-<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a></h1>
-<p id="rfc.section.5.p.1">TBD</p>
-<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#change-log" id="change-log">Change Log</a></h1>
-<p id="rfc.section.6.p.1">TBD</p>
-<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#contributors" id="contributors">Contributors</a></h1>
+<h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#collection-expression-information-model" id="collection-expression-information-model">Collection Expression Information Model</a></h1>
+<p id="rfc.section.3.p.1">[Overview of the entire IM]</p>
+<h1 id="rfc.section.3.1"><a href="#rfc.section.3.1">3.1.</a> <a href="#objects" id="objects">Objects</a></h1>
+<p id="rfc.section.3.1.p.1">[Descriptions of what an "object" is. Seems to be a superset of endpoint attributes; or that "thing" from which we can extract attributes.]</p>
+<h1 id="rfc.section.3.2"><a href="#rfc.section.3.2">3.2.</a> <a href="#filters" id="filters">Filters</a></h1>
+<p id="rfc.section.3.2.p.1">[Description of why we need filters and what they are. Include any implications, i.e. this may imply some degree of "evaluation" (for the purpose of filtering) wherever the collection process is executing.]</p>
+<h1 id="rfc.section.3.3"><a href="#rfc.section.3.3">3.3.</a> <a href="#variables" id="variables">Variables</a></h1>
+<p id="rfc.section.3.3.p.1">[Describe the variable hierarchy and what each means. Dive into local variables and the different constructions present in that element.]</p>
+<h1 id="rfc.section.3.4"><a href="#rfc.section.3.4">3.4.</a> <a href="#formal-information-model" id="formal-information-model">Formal Information Model</a></h1>
+<p id="rfc.section.3.4.p.1">[Pull all of the above together into a concise information model in this subsection.]</p>
+<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#collection-expression-json-binding" id="collection-expression-json-binding">Collection Expression JSON Binding</a></h1>
+<p id="rfc.section.4.p.1">[Put forward a JSON binding for Collection Expression.]</p>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#collection-expression-xml-binding" id="collection-expression-xml-binding">Collection Expression XML Binding</a></h1>
+<p id="rfc.section.5.p.1">[Convert the collection XML from the 102 hackathon (below) to a schema that binds to the previously described information model.]</p>
+<pre>
+&lt;collection&gt;
+  &lt;objects&gt;
+    &lt;object&gt;&lt;/object&gt;
+  &lt;/objects&gt;
+  &lt;filters&gt;
+    &lt;filter&gt;&lt;/filter&gt;
+  &lt;/filters&gt;
+  &lt;variables&gt;
+    &lt;constant-variable&gt;&lt;/constant-variable&gt;
+    &lt;external-variable&gt;&lt;/external-variable&gt;
+    &lt;local-variable&gt;
+      [function-groups, literal-component, variable-component, object-component]
+      &lt;arithmetic&gt;&lt;/arithmetic&gt;
+      &lt;begin&gt;&lt;/begin&gt;
+      &lt;concat&gt;&lt;/concat&gt;
+      &lt;end&gt;&lt;/end&gt;
+      &lt;escape-regex&gt;&lt;/escape-regex&gt;
+      &lt;split&gt;&lt;/split&gt;
+      &lt;substring&gt;&lt;/substring&gt;
+      &lt;time-difference&gt;&lt;/time-difference&gt;
+      &lt;regex-capture&gt;&lt;/regex-capture&gt;
+      &lt;unique&gt;&lt;/unique&gt;
+      &lt;count&gt;&lt;/count&gt;
+      &lt;glob-to-regex&gt;&lt;/glob-to-regex&gt;
+    &lt;/local-variable&gt;
+  &lt;/variables&gt;
+&lt;/collection&gt;
+</pre>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a></h1>
+<p id="rfc.section.6.p.1">[Whether there are IANA considerations remains TBD. It may ultimately be that the decoupling of collection details from abstract collection instruction requires a registry for new collection details&#8230;]</p>
+<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
 <p id="rfc.section.7.p.1">TBD</p>
-<h1 id="rfc.appendix.A"><a href="#rfc.appendix.A">Appendix A.</a> <a href="#the-attic" id="the-attic">The Attic</a></h1>
-<p id="rfc.section.A.p.1">TBD</p>
+<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a></h1>
+<p id="rfc.section.8.p.1">TBD</p>
+<h1 id="rfc.section.9"><a href="#rfc.section.9">9.</a> <a href="#change-log" id="change-log">Change Log</a></h1>
+<p id="rfc.section.9.p.1">TBD</p>
+<h1 id="rfc.section.10"><a href="#rfc.section.10">10.</a> <a href="#contributors" id="contributors">Contributors</a></h1>
+<p id="rfc.section.10.p.1">TBD</p>
+<h1 id="rfc.appendix.A"><a href="#rfc.appendix.A">Appendix A.</a> <a href="#examples" id="examples">Examples</a></h1>
+<p id="rfc.section.A.p.1">[Consider adding one or more examples here.]</p>
+<h1 id="rfc.appendix.B"><a href="#rfc.appendix.B">Appendix B.</a> <a href="#the-attic" id="the-attic">The Attic</a></h1>
+<p id="rfc.section.B.p.1">TBD</p>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
 </h1>
