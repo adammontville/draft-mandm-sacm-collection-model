@@ -5,7 +5,7 @@
 SACM Working Group                                          A. Montville
 Internet-Draft                                                 B. Munyan
 Intended status: Standards Track                                     CIS
-Expires: February 3, 2019                                August 02, 2018
+Expires: February 10, 2019                               August 09, 2018
 
 
                   Endpoint Attribute Collection Model
@@ -17,6 +17,11 @@ Abstract
    that can be used to encapsulate detailed endpoint attribute
    expressions for the purpose of performing collection of actual
    endpoint attributes in support of assessment.
+
+   WORKING GROUP: The source for this draft is maintained in GitHub.
+   Suggested changes should be submitted as pull requests at
+   https://github.com/adammontville/draft-mandm-sacm-collection-model.
+   Instructions are on that page as well.
 
 Status of This Memo
 
@@ -33,7 +38,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 3, 2019.
+   This Internet-Draft will expire on February 10, 2019.
 
 Copyright Notice
 
@@ -45,18 +50,18 @@ Copyright Notice
    (http://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
+
+
+
+Montville & Munyan      Expires February 10, 2019               [Page 1]
+
+Internet-Draft              Collection Model                 August 2018
+
+
    to this document.  Code Components extracted from this document must
    include Simplified BSD License text as described in Section 4.e of
    the Trust Legal Provisions and are provided without warranty as
    described in the Simplified BSD License.
-
-
-
-
-Montville & Munyan      Expires February 3, 2019                [Page 1]
-
-Internet-Draft              Collection Model                 August 2018
-
 
 Table of Contents
 
@@ -102,17 +107,14 @@ Table of Contents
    form in detail.  We begin with an information model and present
    initial XML and JSON bindings.
 
-   [NOTE: We are not averse to other bindings being offered.]
 
 
-
-
-
-
-Montville & Munyan      Expires February 3, 2019                [Page 2]
+Montville & Munyan      Expires February 10, 2019               [Page 2]
 
 Internet-Draft              Collection Model                 August 2018
 
+
+   [NOTE: We are not averse to other bindings being offered.]
 
 2.  Terms and Definitions
 
@@ -163,9 +165,7 @@ Internet-Draft              Collection Model                 August 2018
 
 
 
-
-
-Montville & Munyan      Expires February 3, 2019                [Page 3]
+Montville & Munyan      Expires February 10, 2019               [Page 3]
 
 Internet-Draft              Collection Model                 August 2018
 
@@ -221,7 +221,7 @@ Internet-Draft              Collection Model                 August 2018
 
 
 
-Montville & Munyan      Expires February 3, 2019                [Page 4]
+Montville & Munyan      Expires February 10, 2019               [Page 4]
 
 Internet-Draft              Collection Model                 August 2018
 
@@ -277,4 +277,4 @@ Authors' Addresses
 
 
 
-Montville & Munyan      Expires February 3, 2019                [Page 5]
+Montville & Munyan      Expires February 10, 2019               [Page 5]

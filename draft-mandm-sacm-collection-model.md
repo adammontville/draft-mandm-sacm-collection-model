@@ -49,6 +49,8 @@ informative:
 
 This memo describes an information model (and associated data model) that can be used to encapsulate detailed endpoint attribute expressions for the purpose of performing collection of actual endpoint attributes in support of assessment.
 
+WORKING GROUP: The source for this draft is maintained in GitHub.  Suggested changes should be submitted as pull requests at https://github.com/adammontville/draft-mandm-sacm-collection-model.  Instructions are on that page as well.
+
 --- middle
 
 
